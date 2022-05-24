@@ -10,20 +10,33 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-    let res = []
-    let hash = {}
-    for (let i = 0; i < nums.length - 2; i++) {
-        for (let j = i + 1; j < nums.length - 1; j++) {
-            if (hash[nums[j]] !== undefined) {
-                res.push([nums[j]].concat(hash[nums[j]]))
-                hash[nums[j]] = undefined
-            } else {
-                let mark = 0 - nums[i] - nums[j]
-                hash[mark] = [nums[i], nums[j]]
-            }
+    nums = nums.sort((a, b) => a-b);
+    // console.log(nums)
+    let result = [];
+    for (let i = 0; i < nums.length; i++) {
+        if(nums[i] > 0) break;
+        if(i > 0 && nums[i] == nums[i-1]) continue;
+        let j = i + 1;
+        let r = nums.length - 1
+        while(j < r) {
+           let res = nums[i] + nums[j] + nums[r]
+           if (res > 0) {
+                r--
+           } else if (res < 0) {
+               j++
+           } else {
+            result.push([nums[i], nums[j], nums[r]])
+            while (j < r && nums[j] == nums[j+1]) j++; // 去重
+            while (j < r && nums[r] == nums[r-1]) r--; // 去重
+            j++
+            r--
+           }
         }
     }
-    return res
+    // console.log(result)
+    return result
 };
+
+// threeSum([1,-1,-1,0])
 // @lc code=end
 
