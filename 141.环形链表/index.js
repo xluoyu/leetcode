@@ -18,7 +18,15 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    
+    const hash = {}
+    while (head) {
+        if (hash[head.val]) {
+            return true
+        }
+        hash[head.val] = true
+        head = head.next
+    }
+    return false
 };
 // @lc code=end
 
