@@ -3,9 +3,11 @@
  *
  * [121] 买卖股票的最佳时机
  * 
- * 暴力法
+ * 一次遍历比较
  * 
- * 时间超出
+ * 如果当前值比之前的最小值小，那么就更新最小值
+ * 否则，计算当前值与最小值的差，与结果比较，取最大值
+ * 
  */
 
 // @lc code=start
@@ -14,10 +16,13 @@
  * @return {number}
  */
  var maxProfit = function(prices) {
+  let preNum = Infinity
   let res = 0
   for (let i = 0; i < prices.length; i++) {
-    for (let j = i + 1; j < prices.length; j++) {
-      res = Math.max(res, prices[j] - prices[i])
+    if (prices[i] < preNum) {
+      preNum = prices[i]
+    } else {
+      res = Math.max(res, prices[i] - preNum)
     }
   }
 
