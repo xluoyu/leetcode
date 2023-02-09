@@ -29,6 +29,9 @@ var preorderTraversal = function(root, res = []) {
 }
 
   return res
+
+// if (!root) return []
+// return  [root.val, ...preorderTraversal(root.left), ...preorderTraversal(root.right)]
 };
 // @lc code=end
 

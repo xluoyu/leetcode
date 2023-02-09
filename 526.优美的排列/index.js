@@ -10,7 +10,7 @@
  * @return {number}
  */
 var countArrangement = function(n) {
-
+  return n
 };
 // @lc code=end
 

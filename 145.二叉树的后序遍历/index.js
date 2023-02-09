@@ -13,21 +13,21 @@
  *     this.right = (right===undefined ? null : right)
  * }
  */
-/**
- * @param {TreeNode} root
- * @return {number[]}
- */
-var postorderTraversal = function(root, res = []) {
-  if (root) {
-    res.unshift(root.val)
-  
-  if (root.right) {
-    postorderTraversal(root.right, res)
+  /**
+   * @param {TreeNode} root
+   * @return {number[]}
+   */
+  var postorderTraversal = function(root, res = []) {
+    if (root) {
+      res.unshift(root.val)
+    
+    if (root.right) {
+      postorderTraversal(root.right, res)
+    }
+    if (root.left) {
+      postorderTraversal(root.left, res)
+    }
   }
-  if (root.left) {
-    postorderTraversal(root.left, res)
-  }
-}
 
   return res
 };

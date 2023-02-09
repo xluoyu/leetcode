@@ -18,21 +18,32 @@
  * @param {number} targetSum
  * @return {boolean}
  */
-var hasPathSum = function(root, targetSum) {
+ var hasPathSum = function(root, targetSum) {
   if (!root) return false
 
-  targetSum = targetSum - root.val
-  if (!root.left && !root.right && targetSum === 0) {
-    return true
+  const queNode = [root]
+
+  while (queNode.length) {
+    let now = queNode.shift()
+    let curVal = now.val
+    console.log(now.val)
+    if (!now.left && !now.right) {
+      if (curVal == targetSum) {
+        return true
+      }
+    }
+
+    if (now.left) {
+      now.left.val += curVal
+      queNode.push(now.left)
+    }
+
+    if (now.right) {
+      now.right.val += curVal
+      queNode.push(now.right)
+    }
   }
-  if (root.left) {
-    const res = hasPathSum(root.left, targetSum)
-    if (res) return true
-  }
-  if (root.right) {
-    const res = hasPathSum(root.right, targetSum)
-    if (res) return true
-  }
+
   return false
 };
 // @lc code=end
