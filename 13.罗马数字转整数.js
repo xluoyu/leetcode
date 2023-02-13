@@ -10,6 +10,7 @@
  * @return {number}
  */
 var romanToInt = function(s) {
+<<<<<<< HEAD
   const obj = {
     'I': 1,
     'V': 5,
@@ -68,5 +69,9 @@ var romanToInt = function(s) {
 // }
 
 console.log(romanToInt('IXLVIII'))
+=======
+
+};
+>>>>>>> 1c38ec3ce3ac964dccf9197cc2b0d33337a33cc3
 // @lc code=end
 
