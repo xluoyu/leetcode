@@ -11,6 +11,9 @@
  * @return {number}
  */
 var compareVersion = function(version1, version2) {
+<<<<<<< HEAD
+
+=======
   let arr1 = version1.split('.')
   let arr2 = version2.split('.')
   let maxLength = Math.max(arr1.length,arr2.length)
@@ -27,6 +30,7 @@ var compareVersion = function(version1, version2) {
   }
 
   return 0
+>>>>>>> 1c38ec3ce3ac964dccf9197cc2b0d33337a33cc3
 };
 // @lc code=end
 
